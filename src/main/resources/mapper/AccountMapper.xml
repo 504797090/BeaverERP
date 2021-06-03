@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.java.mapper.AccountMapper">
+    <!--新增一个账号-->
+    <insert id="addOneAccount" parameterType="com.java.bean.Account">
+ insert into bv_account values(null,#{bvName},#{bvDepartment}, #{bvPassword},#{bvQuanxian})
+    </insert>
+
+
+
+
+    <!--用户登录返回一个账号对象-->
+    <select id="userLonin"   resultMap="com.java.bean.Account">
+        select * from  bv_account  where bv_name= #{bvame} and   bv_password = #{bv_password}
+    </select>
+    <!--修改密码信息-->
+    <update id="updateAccountPassword" >
+          update bv_account  set bv_password=#{bv_password}  where id=#{id}
+    </update>
+    <!--删除教师信息-->
+    <delete id="deleteAccount" >
+        delete from bv_account  where id = #{id}
+    </delete>
+</mapper>
