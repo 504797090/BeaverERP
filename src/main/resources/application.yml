@@ -1,0 +1,36 @@
+spring:
+  # 数据源
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+#    username: dmag
+#    # Jasypt加密 可到common-utils中找到JasyptUtil加解密工具类生成加密结果 格式为ENC(加密结果) 以下解密结果为root
+#    password: dmag
+    url: jdbc:mysql://localhost:3306/beaver?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true&useAffectedRows=true
+    username: root
+    # Jasypt加密 可到common-utils中找到JasyptUtil加解密工具类生成加密结果 格式为ENC(加密结果) 以下解密结果为root
+    password: root
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: Sqlparser_HikariCP
+      minimum-idle: 5       # 最小空闲连接接数量
+      maximum-pool-size: 10 # 默认是10
+      idle-timeout: 180000  # 默认10分钟=600000
+      auto-commit: true     # 默认true
+      max-lifetime: 1800000 # 默认30分钟=1800000
+      connection-timeout: 30000
+  mvc:
+    date-format: yyyy-MM-dd
+    view:
+      prefix : /WEB-INF/
+      suffix : .jsp
+server:
+  port: 8080
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
