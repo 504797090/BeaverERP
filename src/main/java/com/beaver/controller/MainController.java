@@ -12,6 +12,7 @@ public class MainController {
     public String login() {
         return "index";
     }
+
     @RequestMapping("/new")
     public String newPage() {
         return "index_admin";

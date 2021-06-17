@@ -229,6 +229,7 @@
         position: relative;
         z-index: 2;
     }
+
     /*
     横线，并通过z-index：-1将or附近的横线遮盖住
     */
@@ -259,6 +260,7 @@
         height: 200px;
         border: 1px solid gray;
     }
+
     .item {
         height: 120px;
         width: 120px;
@@ -272,10 +274,8 @@
 </style>
 
 
-
-
 <%--1 (1).	采购任务建立--%>
-<div id="taskCreation" class="item"  div_data="1">一、采购任务建立</div>
+<div id="taskCreation" class="item" div_data="1">一、采购任务建立</div>
 <%--2 (2).	采购任务审核--%>
 <div id="taskReview" class="item danger" div_data="2">二、采购任务审核</div>
 <%--3 (3).	采购员指派--%>
@@ -288,53 +288,58 @@
 <div id="applicationGeneration" class="item" style="margin-left:50px;" div_data="5">六、采购申请单生成</div>
 
 <div style="clear:both"></div>
-    <%--(12).	付款回单下载；--%>
-    <div id="paymentSlipDownload" class="item" style="margin-left:50px;" div_data="12">十二、付款回单下载</div>
-    <%--(11).	网银付款指令授权；--%>
-    <div id="athorizationOnlineInstruction" class="item" style="margin-left:50px;" div_data="11">十一、网银付款指令授权</div>
-    <%--10(10).	付款审核；--%>
-    <div id="paymentReview" class="item" style="margin-left:50px;" div_data="10">十、付款审核</div>
-    <%--9(9).	网银付款指令提交；--%>
-    <div id="onlineBankingInstructionSubmission" class="item" style="margin-left:50px;" div_data="9">九、网银付款指令提交</div>
-    <%--8(8).	付款申请单生成；--%>
-    <div id="paymentRequisitionGenerated" class="item" style="margin-left:50px;" div_data="8">八、付款申请单生成</div>
-    <%--7S(7).	签订并上传合同--%>
-    <div id="signUploadContract" class="item" style="margin-left:50px; " div_data="7">七、签订并上传合同</div>
+<%--(12).	付款回单下载；--%>
+<div id="paymentSlipDownload" class="item" style="margin-left:50px;" div_data="12">十二、付款回单下载</div>
+<%--(11).	网银付款指令授权；--%>
+<div id="athorizationOnlineInstruction" class="item" style="margin-left:50px;" div_data="11">十一、网银付款指令授权</div>
+<%--10(10).	付款审核；--%>
+<div id="paymentReview" class="item" style="margin-left:50px;" div_data="10">十、付款审核</div>
+<%--9(9).	网银付款指令提交；--%>
+<div id="onlineBankingInstructionSubmission" class="item" style="margin-left:50px;" div_data="9">九、网银付款指令提交</div>
+<%--8(8).	付款申请单生成；--%>
+<div id="paymentRequisitionGenerated" class="item" style="margin-left:50px;" div_data="8">八、付款申请单生成</div>
+<%--7S(7).	签订并上传合同--%>
+<div id="signUploadContract" class="item" style="margin-left:50px; " div_data="7">七、签订并上传合同</div>
 
+
+<div style="clear:both">
+    <%--(13).	到货单生成；--%>
+    <div id="InvoiceGeneration" class="item" style="margin-left:50px;" div_data="13">十三、到货单生成</div>
+    <%--(14).	物料收货确认（对版、对数、对外购）；--%>
+    <div id="materialReceiptConfirmation" class="item" style="margin-left:50px;" div_data="14">十四、物料收货确认（对版、对数、对外购）
+    </div>
+    <%--(15).	物料质检（由采购发起人负责质检）；；--%>
+    <div id="materialQuality" class="item" style="margin-left:50px;" div_data="15">十五、物料质检（由采购发起人负责质检）</div>
+    <%--(16).	物料入库，入库单生成--%>
+    <div id="putMaterialsListGeneration" class="item" style="margin-left:50px;" div_data="16">十六、物料入库，入库单生成</div>
+    <%--(17).	采购员追回发票；--%>
+    <div id="purchaserRetrievesInvoice" class="item" style="margin-left:50px;" div_data="17">十七、采购员追回发票</div>
+    <%--(18).	采购员打印整理相关表格、文档和票据，提交资料给会计--%>
+    <div id="printOrganizeRelatedForms" class="item" style="margin-left:50px; " div_data="18">
+        十八、采购员打印整理相关表格、文档和票据，提交资料给会计
+    </div>
 
     <div style="clear:both">
-        <%--(13).	到货单生成；--%>
-        <div id="InvoiceGeneration" class="item" style="margin-left:50px;" div_data="13">十三、到货单生成</div>
-        <%--(14).	物料收货确认（对版、对数、对外购）；--%>
-        <div id="materialReceiptConfirmation" class="item" style="margin-left:50px;" div_data="14">十四、物料收货确认（对版、对数、对外购）</div>
-        <%--(15).	物料质检（由采购发起人负责质检）；；--%>
-        <div id="materialQuality" class="item" style="margin-left:50px;" div_data="15">十五、物料质检（由采购发起人负责质检）</div>
-        <%--(16).	物料入库，入库单生成--%>
-        <div id="putMaterialsListGeneration" class="item" style="margin-left:50px;" div_data="16">十六、物料入库，入库单生成</div>
-        <%--(17).	采购员追回发票；--%>
-        <div id="purchaserRetrievesInvoice" class="item" style="margin-left:50px;" div_data="17">十七、采购员追回发票</div>
-        <%--(18).	采购员打印整理相关表格、文档和票据，提交资料给会计--%>
-        <div id="printOrganizeRelatedForms" class="item" style="margin-left:50px; " div_data="18">十八、采购员打印整理相关表格、文档和票据，提交资料给会计</div>
-
-        <div style="clear:both">
-            <div class="item" style="margin-left:50px;visibility: hidden "></div>
-            <div class="item" style="margin-left:50px;visibility: hidden "></div>
-            <%--(22).	采购流程结束--%>
-            <div id="endProcurement" class="item" style="margin-left:50px;" div_data="22">二十二、采购流程结束</div>
-            <%--(21).	关闭采购流程后，数据存档，不能再更改；--%>
-            <div id="dataArchived" class="item" style="margin-left:50px;" div_data="21">二十一、关闭采购流程后，数据存档，不能再更改</div>
-            <%--(20).	采购部长发布采购结论信息，关闭采购流程。--%>
-            <div id="ministerProcurementReleasesInformation" class="item" style="margin-left:50px;" div_data="20">二十、采购部长发布采购结论信息，关闭采购流程</div>
-            <%--19(19).	会计审核票据；--%>
-            <div id="accountingAuditBill" class="item" style="margin-left:50px;" div_data="19">十九、会计审核票据</div>
+        <div class="item" style="margin-left:50px;visibility: hidden "></div>
+        <div class="item" style="margin-left:50px;visibility: hidden "></div>
+        <%--(22).	采购流程结束--%>
+        <div id="endProcurement" class="item" style="margin-left:50px;" div_data="22">二十二、采购流程结束</div>
+        <%--(21).	关闭采购流程后，数据存档，不能再更改；--%>
+        <div id="dataArchived" class="item" style="margin-left:50px;" div_data="21">二十一、关闭采购流程后，数据存档，不能再更改</div>
+        <%--(20).	采购部长发布采购结论信息，关闭采购流程。--%>
+        <div id="ministerProcurementReleasesInformation" class="item" style="margin-left:50px;" div_data="20">
+            二十、采购部长发布采购结论信息，关闭采购流程
+        </div>
+        <%--19(19).	会计审核票据；--%>
+        <div id="accountingAuditBill" class="item" style="margin-left:50px;" div_data="19">十九、会计审核票据</div>
         <%--连接线 的样式 --%>
 
-<%--用js 实现点击 div 出现  操作、修改或补充信息  --%>
+        <%--用js 实现点击 div 出现  操作、修改或补充信息  --%>
 
-            <script>
-                $(".item").click(function () {
-                    var em = $(this).attr('div_data');
-                    console.log(em);
-                    alert(em)
-                })
-            </script>
+        <script>
+            $(".item").click(function () {
+                var em = $(this).attr('div_data');
+                console.log(em);
+                alert(em)
+            })
+        </script>

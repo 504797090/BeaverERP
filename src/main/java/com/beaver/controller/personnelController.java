@@ -24,19 +24,20 @@ public class personnelController {
 
     @RequestMapping("/getAllStaff")
     @ResponseBody
-    public List<Account> getAllStaff(){
-        return  accountService.getAllStaff();
+    public List<Account> getAllStaff() {
+        return accountService.getAllStaff();
     }
 
     @RequestMapping("/deleteOneStaff")
     @ResponseBody
-    public int  deleteOneStaff(Account account){
-      return   accountService.deleteAccount(account);
+    public int deleteOneStaff(Account account) {
+        return accountService.deleteAccount(account);
     }
+
     @RequestMapping("/getOneStaffById")
     @ResponseBody
-    public Account  getOneStaffById(int id){
-       return accountService.findUserById(id);
+    public Account getOneStaffById(int id) {
+        return accountService.findUserById(id);
 
     }
 

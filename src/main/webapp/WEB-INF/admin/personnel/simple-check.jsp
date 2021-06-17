@@ -19,13 +19,13 @@
                     采购模块
                     <br>
                     <label class="checkbox-inline">
-                        <input type="checkbox"  value="purchase_taskReview">任务审核
+                        <input type="checkbox" value="purchase_taskReview">任务审核
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox"  value="option2">12
+                        <input type="checkbox" value="option2">12
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox"  value="option3">213
+                        <input type="checkbox" value="option3">213
                     </label>
                 </div>
             </div>
@@ -135,10 +135,10 @@
                     'click #updateStaffPower': function (value, row, index) {
                         // alert(index.id)
                         $.ajax({
-                            url:"/personnel/getOneStaffById",
-                            async:false,
-                            data:{"id":index.id},
-                            success:function (data) {
+                            url: "/personnel/getOneStaffById",
+                            async: false,
+                            data: {"id": index.id},
+                            success: function (data) {
                                 console.log(data)
                                 $("#updateStaffName").html(data.bvName);
                                 $("#updatePowerModal").modal('show');

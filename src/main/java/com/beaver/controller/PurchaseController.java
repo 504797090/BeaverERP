@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -134,11 +135,11 @@ public class PurchaseController {
                     }
                 }
             }
-            accounts.forEach(item->{
+            accounts.forEach(item -> {
                 accountService.addOneAccount(item);
-                });
+            });
 
-            return  1;
+            return 1;
         } catch (IOException e) {
             e.printStackTrace();
             try {
@@ -158,7 +159,7 @@ public class PurchaseController {
     }
 
     @RequestMapping("/task-creation")
-    public String taskCreationWindow(){
+    public String taskCreationWindow() {
         return "/admin/purchase/task-creation";
     }
 

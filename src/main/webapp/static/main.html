@@ -60,14 +60,15 @@
 
     <script>
         checkIsLogin()
-        function checkIsLogin(){
+
+        function checkIsLogin() {
             $.ajax({
-                url:"/account/userIsLogin",
+                url: "/account/userIsLogin",
                 async: false,
-                success:function (data) {
-                    if(data==0){
+                success: function (data) {
+                    if (data == 0) {
                         console.log("非登录状态");
-                        window.location.href='index.html';
+                        window.location.href = 'index.html';
                         return
                     }
                 }
@@ -100,13 +101,13 @@
                     <div style="float: left ;margin-left: 5px ">
                         <label style="font-size: 15px">从excel表上传：</label>
                         <br/>
-                            <form method="post" action="/purchase/addPurchaseList" enctype="multipart/form-data">
-                                <div style="float: left;width: 200px">
-                                    <input name="file" type="file" id="checkIsLoginPurchase2"/>
-                                </div>
-                                <button class="btn btn-info" style=" margin-right: 5px ;float: right" type="submit">上传
-                                </button>
-                            </form>
+                        <form method="post" action="/purchase/addPurchaseList" enctype="multipart/form-data">
+                            <div style="float: left;width: 200px">
+                                <input name="file" type="file" id="checkIsLoginPurchase2"/>
+                            </div>
+                            <button class="btn btn-info" style=" margin-right: 5px ;float: right" type="submit">上传
+                            </button>
+                        </form>
                     </div>
                     <!--<button class="btn btn-info" style="margin-top:5px;margin-right: 5px ;float: right" onclick="addPurchaseList()">开始添加-->
                     <!--</button>-->
@@ -192,6 +193,7 @@
             $("#checkIsLoginPurchase2").click(function () {
                 checkIsLogin()
             })
+
             function addPurchaseList() {               //批量上传
                 jQuery.ajaxFileUpload({
                     url: "/user/addPurchaseList",
@@ -336,9 +338,9 @@
                             // type: 'date',
                             // title: '第二次付款时间',
                             // emptytext: '请选择第二次付款时间',
-                        type: 'text',
-                        title: '第二次付款时间',
-                        emptytext: '第二次付款时间',
+                            type: 'text',
+                            title: '第二次付款时间',
+                            emptytext: '第二次付款时间',
                         },
                     },
                     {

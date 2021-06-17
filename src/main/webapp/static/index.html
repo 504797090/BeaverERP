@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>采购信息管理模块登录页面</title>
     <!--用百度的静态资源库的cdn安装bootstrap环境-->
     <!-- Bootstrap 核心 CSS 文件 -->
@@ -13,20 +13,48 @@
     <!-- Bootstrap 核心 JavaScript 文件 -->
     <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <!--jquery.validate-->
-    <script type="text/javascript" src="js/jquery.validate.min.js" ></script>
-    <script type="text/javascript" src="js/message.js" ></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/message.js"></script>
 
     <!--引入BOOTSTRAP-css 生成部门选择-->
     <link rel="stylesheet" href="bootstrap-select-1.13.0-dev/dist/css/bootstrap-select.css">
     <script src="bootstrap-select-1.13.0-dev/dist/js/bootstrap-select.js"></script>
     <style type="text/css">
-        body{background: url(img/4.jpg) no-repeat;background-size:cover;font-size: 16px;}
-        .form{background: rgba(255,255,255,0.2);width:400px;margin:100px auto;}
-        #login_form{display: block;}
-        #register_form{display: none;}
-        .fa{display: inline-block;top: 27px;left: 6px;position: relative;color: #ccc;}
-        input[type="text"],input[type="password"]{padding-left:26px;}
-        .checkbox{padding-left:21px;}
+        body {
+            background: url(img/4.jpg) no-repeat;
+            background-size: cover;
+            font-size: 16px;
+        }
+
+        .form {
+            background: rgba(255, 255, 255, 0.2);
+            width: 400px;
+            margin: 100px auto;
+        }
+
+        #login_form {
+            display: block;
+        }
+
+        #register_form {
+            display: none;
+        }
+
+        .fa {
+            display: inline-block;
+            top: 27px;
+            left: 6px;
+            position: relative;
+            color: #ccc;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding-left: 26px;
+        }
+
+        .checkbox {
+            padding-left: 21px;
+        }
     </style>
     <style>
         img {
@@ -45,13 +73,13 @@
                 <h4 class="modal-title">注册账号</h4>
             </div>
             <div class="modal-body" style="height: 280px">
-                <div action="" class="form-inline" method="post"  role="form">
+                <div action="" class="form-inline" method="post" role="form">
                     <div class="form-group" style="padding-bottom: 8px;">
-                        <label class="col-md-6 text-center" >
+                        <label class="col-md-6 text-center">
                             姓      名 :
                         </label>
                         <div class="col-md-6">
-                            <input class="form-control" id="bv_name"    type="text" name="bv_name"/>
+                            <input class="form-control" id="bv_name" type="text" name="bv_name"/>
                             <p id="telephoneError" style="margin-bottom: -2px;color: red;">
                             </p>
                         </div>
@@ -61,32 +89,33 @@
                             密      码 :
                         </label>
                         <div class="col-md-6">
-                            <input class="form-control" id="password" name="password"   type="password"/>
+                            <input class="form-control" id="password" name="password" type="password"/>
                             <p id="passwordError" style="margin-bottom: -2px;color: red;">
                             </p>
                         </div>
                     </div>
                     <!--<div class="form-group" style="padding-bottom: 8px;">-->
-                        <!--<label class="col-md-6 text-center" for="rePassword">-->
-                            <!--重复密码:-->
-                        <!--</label>-->
-                        <!--<div class="col-md-6">-->
-                            <!--<input class="form-control" id="rePassword" name="rePassword"  type="password"/>-->
-                            <!--<p id="rePasswordError" style="margin-bottom: -2px;color: red;">-->
-                            <!--</p>-->
-                        <!--</div>-->
+                    <!--<label class="col-md-6 text-center" for="rePassword">-->
+                    <!--重复密码:-->
+                    <!--</label>-->
+                    <!--<div class="col-md-6">-->
+                    <!--<input class="form-control" id="rePassword" name="rePassword"  type="password"/>-->
+                    <!--<p id="rePasswordError" style="margin-bottom: -2px;color: red;">-->
+                    <!--</p>-->
+                    <!--</div>-->
                     <!--</div>-->
                     <div class="form-group" style="padding-bottom: 8px;">
                         <label class="col-md-6 text-center" for="name">
                             所属部门:
                         </label>
                         <div class="col-md-6">
-                                <select class="selectpicker " title="请选择部门" style="position: relative; left: 50px" id="bv_department" name="bv_department">
-                                    <option value="产品部">产品部</option>
-                                    <option value="综合部">综合部</option>
-                                    <option value="装配部">装配部</option>
-                                    <option value="机械部">机械部</option>
-                                </select>
+                            <select class="selectpicker " title="请选择部门" style="position: relative; left: 50px"
+                                    id="bv_department" name="bv_department">
+                                <option value="产品部">产品部</option>
+                                <option value="综合部">综合部</option>
+                                <option value="装配部">装配部</option>
+                                <option value="机械部">机械部</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group" style="padding-bottom: 8px;">
@@ -94,23 +123,23 @@
                             邮      箱 :
                         </label>
                         <div class="col-md-6">
-                            <input class="form-control" id="email" name="email"  required="true" type="text"/>
+                            <input class="form-control" id="email" name="email" required="true" type="text"/>
                             <p id="emailError" style="margin-bottom: -2px;color: red;">
                             </p>
                         </div>
                     </div>
                     <!--<div class="form-group" style="padding-bottom: 18px;">-->
-                        <!--<label class="col-md-6 text-center" for="qq">-->
-                            <!--Q       Q :-->
-                        <!--</label>-->
-                        <!--<div class="col-md-6">-->
-                            <!--<input class="form-control" id="qq" name="qq" οnblur="checkQQ()" required="true" type="text"/>-->
-                            <!--<p id="qqError" style="margin-bottom: -2px;color: red;">-->
-                            <!--</p>-->
-                        <!--</div>-->
+                    <!--<label class="col-md-6 text-center" for="qq">-->
+                    <!--Q       Q :-->
+                    <!--</label>-->
+                    <!--<div class="col-md-6">-->
+                    <!--<input class="form-control" id="qq" name="qq" οnblur="checkQQ()" required="true" type="text"/>-->
+                    <!--<p id="qqError" style="margin-bottom: -2px;color: red;">-->
+                    <!--</p>-->
+                    <!--</div>-->
                     <!--</div>-->
                     <div class="col-lg-6" style="margin-bottom: 8px">
-                        <input class="btn btn-primary btn-block" type="submit" value="注册" onclick="register()" />
+                        <input class="btn btn-primary btn-block" type="submit" value="注册" onclick="register()"/>
                     </div>
                     <div class="col-lg-6" style="margin-bottom: 18px">
                         <a class="btn btn-primary btn-block" href="index.html">
@@ -119,21 +148,21 @@
                     </div>
                 </div>
                 <script>
-                    function  register(){
+                    function register() {
                         if ($("#bv_department").val() == "" || $("#password").val() == "" || $("#bv_name").val() == "") {
                             alert("信息未填写全")
                             return;
-                        }else{
+                        } else {
                             $.ajax({
-                                url:"/account/addOneAccount",
+                                url: "/account/addOneAccount",
                                 type: "post",
                                 async: false,
-                                data:{
+                                data: {
                                     bvName: $("#bv_name").val(),
                                     bvPassword: $("#password").val(),
                                     bvDepartment: $("#bv_department").val(),
                                 },
-                                success:function (obj) {
+                                success: function (obj) {
                                     alert("注册成功,请登录");
                                     window.location.reload();
                                 },
@@ -154,47 +183,49 @@
 
 <div class="container">
     <div class="form row">
-        <div class="form-horizontal col-sm-offset-3 col-md-offset-3" >
+        <div class="form-horizontal col-sm-offset-3 col-md-offset-3">
             <h3 class="form-title">采购信息管理后台</h3>
             <div class="col-sm-9 col-md-9">
                 <div class="form-group">
                     <i class="fa fa-user fa-lg"></i>
-                    <input class="form-control required" type="text" placeholder="请填写姓名" name="username" autofocus="autofocus" maxlength="20" id="1"/>
+                    <input class="form-control required" type="text" placeholder="请填写姓名" name="username"
+                           autofocus="autofocus" maxlength="20" id="1"/>
                 </div>
                 <div class="form-group">
                     <i class="fa fa-lock fa-lg"></i>
-                    <input class="form-control required" type="password" placeholder="请填写密码" name="password" maxlength="8" id="2"/>
+                    <input class="form-control required" type="password" placeholder="请填写密码" name="password"
+                           maxlength="8" id="2"/>
                 </div>
                 <div class="form-group">
                     <!--<label class="checkbox">-->
-                        <!--<input type="checkbox" name="remember" value="1"/> Remember me-->
+                    <!--<input type="checkbox" name="remember" value="1"/> Remember me-->
                     <!--</label>-->
-                    <hr />
+                    <hr/>
                     <a href="javascript:;" id="register_btn" class="" data-toggle="modal" data-target="#registerModal">用户注册</a>
                 </div>
-
 
 
                 <div class="form-group">
                     <!--col-sm-10-->
                     <!--<div class=" col-sm-2">-->
-                        <img src="/account/getCode" id="codeImg" onclick="refresh()" alt="">
+                    <img src="/account/getCode" id="codeImg" onclick="refresh()" alt="">
                     <!--</div>-->
 
                     <div class="form-group col-sm-9 col-md-9" style="margin-bottom: 0">
                         <!--<label class=" control-label" >-->
-                            <!--验证码 :-->
+                        <!--验证码 :-->
                         <!--</label>-->
-                        <input  type="text" class="form-control col-sm-6" id="imgText" name="imgText" placeholder="请输入验证码">
+                        <input type="text" class="form-control col-sm-6" id="imgText" name="imgText"
+                               placeholder="请输入验证码">
                     </div>
                 </div>
 
                 <!--<div class="form-group">-->
-                    <!--&lt;!&ndash;<label for="password" class="col-sm-2 control-label">验证码</label>&ndash;&gt;-->
+                <!--&lt;!&ndash;<label for="password" class="col-sm-2 control-label">验证码</label>&ndash;&gt;-->
                 <!--</div>-->
 
                 <div class="form-group">
-                    <input type="submit" class="btn btn-success pull-right" value="Login " id="login_form" />
+                    <input type="submit" class="btn btn-success pull-right" value="Login " id="login_form"/>
                 </div>
             </div>
         </div>
@@ -206,15 +237,18 @@
             <div class="col-sm-9 col-md-9">
                 <div class="form-group">
                     <i class="fa fa-user fa-lg"></i>
-                    <input class="form-control required" type="text" placeholder="Username" name="username" autofocus="autofocus"/>
+                    <input class="form-control required" type="text" placeholder="Username" name="username"
+                           autofocus="autofocus"/>
                 </div>
                 <div class="form-group">
                     <i class="fa fa-lock fa-lg"></i>
-                    <input class="form-control required" type="password" placeholder="Password" id="register_password" name="password"/>
+                    <input class="form-control required" type="password" placeholder="Password" id="register_password"
+                           name="password"/>
                 </div>
                 <div class="form-group">
                     <i class="fa fa-check fa-lg"></i>
-                    <input class="form-control required" type="password" placeholder="Re-type Your Password" name="rpassword"/>
+                    <input class="form-control required" type="password" placeholder="Re-type Your Password"
+                           name="rpassword"/>
                 </div>
                 <div class="form-group">
                     <i class="fa fa-envelope fa-lg"></i>
@@ -236,29 +270,29 @@
     }
 
     $("#login_form").click(function () {
-        if( $("#1").val()=="" || $("#2").val()=="" ){
+        if ($("#1").val() == "" || $("#2").val() == "") {
             alert("请输入账号密码!")
             return
         }
 
         $.ajax({
-            url:"/account/userLogin",
+            url: "/account/userLogin",
             type: "post",
             async: false,
             dataType: "json",
-            data:{
+            data: {
                 bvName: $("#1").val(),
                 bvPassword: $("#2").val(),
-                imgText:$("#imgText").val(),
+                imgText: $("#imgText").val(),
             },
-            success:function (obj) {
-                if (obj==3){
+            success: function (obj) {
+                if (obj == 3) {
                     alert("您输入的的验证码有误")
 
                 }
-                if(obj==1){
-                    window.location.href='main.html'
-                }else{
+                if (obj == 1) {
+                    window.location.href = 'main.html'
+                } else {
                     alert("登录失败，请重新登录!")
                     window.location.reload();
                 }

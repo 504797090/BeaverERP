@@ -20,35 +20,35 @@ public class SupplierController {
 
     @RequestMapping("/getAllSupplier")
     @ResponseBody
-    public List<Supplier> getAllSupplier( ) {
+    public List<Supplier> getAllSupplier() {
         return suppilerService.getAllSupplier();
     }
 
     @RequestMapping("/addSupplier")
     @ResponseBody
-    public int  addSupplier( Supplier supplier) {
+    public int addSupplier(Supplier supplier) {
         System.out.println(supplier);
         int result = 0;
         result = suppilerService.addOneSupplier(supplier);
-        return  result;
+        return result;
     }
 
     @RequestMapping("/deleteSupplier")
     @ResponseBody
-    public int  deleteSupplier(  String sid) {
+    public int deleteSupplier(String sid) {
         System.out.println(sid);
         int result = 0;
         result = suppilerService.deleteSupplier(Integer.parseInt(sid));
 
         System.out.println(result);
-        return  result;
+        return result;
     }
 
 
     @RequestMapping("/getAllSupplierIdName")
     @ResponseBody
-    public String  getAllSupplierIdName(){
-        return  JSON.toJSONString(suppilerService.getAllSupplierIdName());
+    public String getAllSupplierIdName() {
+        return JSON.toJSONString(suppilerService.getAllSupplierIdName());
     }
 
 

@@ -10,7 +10,7 @@ import java.util.Date;
  * @author yupan@yijiupi.cn
  * @date 2019-11-15 16:03
  */
-public  class DateUtils {
+public class DateUtils {
 
     /**
      * 日期格式化 yyyy-MM-dd HH:mm:ss

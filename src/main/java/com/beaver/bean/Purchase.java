@@ -13,7 +13,7 @@ public class Purchase {
     private String sponsorDepartment;  //发起人  在session中
 
     private int sId;  //供应商id
-//    @Value("${aaa.bbb.ccc:DefaultValue}")
+    //    @Value("${aaa.bbb.ccc:DefaultValue}")
     private String payTime1; //第一次付款时间
     private String payTime2;  //第二次付款时间
     private int rId;  //接收对象ID
@@ -23,7 +23,7 @@ public class Purchase {
     private double totalPrices2; //第二次付款
     private double realPrice;  //合同价格
     private String purchaseName; //订单名称
-    private String  receptionName;
+    private String receptionName;
     private String receptionDepartment;
     private int mId;
 

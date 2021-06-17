@@ -27,19 +27,20 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public int updateAccountPassword(Account account) {
-       int a=  accountMapper.updateAccountPassword(account);
-        if(a>0){
-            return 1 ;
-        }else{
+        int a = accountMapper.updateAccountPassword(account);
+        if (a > 0) {
+            return 1;
+        } else {
             return 0;
         }
     }
+
     @Override
     public int deleteAccount(Account account) {
         int a = accountMapper.deleteAccount(account);
-        if(a>0){
-            return 1 ;
-        }else{
+        if (a > 0) {
+            return 1;
+        } else {
             return 0;
         }
     }

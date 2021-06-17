@@ -13,5 +13,5 @@ public interface SuppilerService {
 
     int deleteSupplier(int sId);
 
-    List <Map<Integer,String>> getAllSupplierIdName();
+    List<Map<Integer, String>> getAllSupplierIdName();
 }

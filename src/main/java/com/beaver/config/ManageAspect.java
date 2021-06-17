@@ -15,7 +15,8 @@ public class ManageAspect {
      * 切点表达式:   execution(...)
      */
     @Pointcut("execution(public * com.beaver.service.impl.*.*(..))")
-    public void logPointCut() {}
+    public void logPointCut() {
+    }
 
 
 //    @Around("webLog()")
