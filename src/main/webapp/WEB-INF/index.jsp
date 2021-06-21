@@ -1,9 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+            + path;
+%>
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8"/>
-    <title>采购信息管理模块登录页面</title>
+    <title>beaverERP系统-登录</title>
     <!--用百度的静态资源库的cdn安装bootstrap环境-->
     <!-- Bootstrap 核心 CSS 文件 -->
     <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -144,7 +149,7 @@
                         <input class="btn btn-primary btn-block" type="submit" value="注册" onclick="register()"/>
                     </div>
                     <div class="col-lg-6" style="margin-bottom: 18px">
-                        <a class="btn btn-primary btn-block" href="index.jsp">
+                        <a class="btn btn-primary btn-block" href="/beaver/login">
                             已有账号
                         </a>
                     </div>
@@ -163,9 +168,10 @@
                                     bvName: $("#bv_name").val(),
                                     bvPassword: $("#password").val(),
                                     bvDepartment: $("#bv_department").val(),
+                                    mail:$("#email").val(),
                                 },
                                 success: function (obj) {
-                                    alert("注册成功,请登录");
+                                    alert("注册成功,请等待审核");
                                     window.location.reload();
                                 },
                             })
@@ -186,7 +192,7 @@
 <div class="container">
     <div class="form row">
         <div class="form-horizontal col-sm-offset-3 col-md-offset-3">
-            <h3 class="form-title">采购信息管理后台</h3>
+            <h3 class="form-title">beaverERP系统-登录</h3>
             <div class="col-sm-9 col-md-9">
                 <div class="form-group">
                     <i class="fa fa-user fa-lg"></i>
@@ -195,7 +201,7 @@
                 </div>
                 <div class="form-group">
                     <i class="fa fa-lock fa-lg"></i>
-                    <input class="form-control required" type="password" placeholder="请填写密码" name="password"
+                    <input style="" class="form-control required" type="password" placeholder="请填写密码" name="password"
                            maxlength="8" id="2"/>
                 </div>
                 <div class="form-group">
@@ -210,16 +216,16 @@
                 <div class="form-group">
                     <!--col-sm-10-->
                     <!--<div class=" col-sm-2">-->
-                    <img src="/account/getCode" id="codeImg" onclick="refresh()" alt="">
+                    <%--<img src="<%=basePath%>/account/getCode" id="codeImg" onclick="refresh()" alt="">--%>
                     <!--</div>-->
 
-                    <div class="form-group col-sm-9 col-md-9" style="margin-bottom: 0">
-                        <!--<label class=" control-label" >-->
-                        <!--验证码 :-->
-                        <!--</label>-->
-                        <input type="text" class="form-control col-sm-6" id="imgText" name="imgText"
-                               placeholder="请输入验证码">
-                    </div>
+                    <%--<div class="form-group col-sm-9 col-md-9" style="margin-bottom: 0">--%>
+                        <%--<!--<label class=" control-label" >-->--%>
+                        <%--<!--验证码 :-->--%>
+                        <%--<!--</label>-->--%>
+                        <%--<input type="text" class="form-control col-sm-6" id="imgText" name="imgText"--%>
+                               <%--placeholder="请输入验证码">--%>
+                    <%--</div>--%>
                 </div>
 
                 <!--<div class="form-group">-->
@@ -266,10 +272,10 @@
 </div>
 <script>
 
-    /* 刷新验证码 */
-    function refresh() {
-        document.getElementById("codeImg").src = "account/getCode?time=" + new Date().getTime();
-    }
+    // /* 刷新验证码 */
+    // function refresh() {
+    //     document.getElementById("codeImg").src = "/account/getCode?time=" + new Date().getTime();
+    // }
 
     $("#login_form").click(function () {
         if ($("#1").val() == "" || $("#2").val() == "") {
@@ -288,15 +294,16 @@
                 imgText: $("#imgText").val(),
             },
             success: function (obj) {
-                if (obj == 3) {
-                    alert("您输入的的验证码有误")
-
-                }
+                // alert(obj)
+                // if (obj == 3) {
+                //     alert("您输入的的验证码有误")
+                //
+                // }
                 if (obj == 1) {
-                    window.location.href = '/account/accountSkip'
+                    window.location.href = '/account/loginSuccess'
                 } else {
                     alert("登录失败，请重新登录!")
-                    window.location.reload();
+                    // window.location.reload();
                 }
 
 

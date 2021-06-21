@@ -5,12 +5,12 @@
 <mapper namespace="com.beaver.mapper.AccountMapper">
     <!--新增一个账号-->
     <insert id="addOneAccount" parameterType="com.beaver.bean.Account">
-        insert into bv_account values(null,#{bvName},#{bvDepartment}, #{bvPassword},#{bvQuanxian})
+        insert into bv_account values(null,#{bvName},#{bvDepartment}, #{bvPassword},#{bvQuanxian},0,#{mail} )
     </insert>
 
     <!--用户登录返回一个账号对象-->
     <select id="userLonin" resultType="com.beaver.bean.Account">
-        select * from bv_account where bv_name= #{bvName} and bv_password = #{bvPassword}
+        select * from bv_account where bv_name= #{bvName} and bv_password = #{bvPassword} and  usable =1
     </select>
     <!--修改密码信息-->
     <update id="updateAccountPassword">

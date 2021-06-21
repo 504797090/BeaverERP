@@ -10,6 +10,9 @@ public class Account {
     private String bvDepartment; //部门表主键ID
     private String bvPassword; //密码
     private String bvQuanxian; //权限表ID
+    private String mail;
+    private int usable;  //初始不可用
+
 
     public Account() {
     }

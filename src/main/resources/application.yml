@@ -23,14 +23,34 @@ spring:
     view:
       prefix : /WEB-INF/
       suffix : .jsp
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
+  mail:
+    host: smtp.126.com
+    username: beaver_lufeng@126.com
+    password: WPOVDBHMXYIPHCZB
+    protocol: smtp
+    default-encoding: UTF-8
+    port: 25
+#    properties:
+#        mail:
+#          smtp:
+#            socketFactoryClass: javax.net.ssl.SSLSocketFactory
+#            #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
+#          debug: true
 server:
   port: 8080
-
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
 
 
 

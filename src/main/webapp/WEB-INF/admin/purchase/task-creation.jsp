@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2021/6/11
-  Time: 11:13
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -122,73 +115,8 @@
             <small>任务建立</small>
         </h1>
     </div>
+    <%@ include file="task-details/detail-html1.jsp"%>
     <%--添加的模态框--%>
-    <div id="addPurchaseModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- 模态内容 -->
-            <div class="modal-content">
-                <!-- 模态框头部 -->
-                <div class="modal-header">
-                    <h4 class="modal-title">添加采购订单</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="form-group">
-                        <label>请输入采购项目名称：</label>
-                        <br>
-                        <input id="purchaseName" class="form-control" type="text" placeholder="请输入采购项目名称">
-                    </div>
-                    <div class="form-group">
-                        <label>请选择供应商名称：</label>
-                        <br>
-                        <select id="supplierSelect" class="form-control">
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>请输入本次采购的物料称：</label>
-                        <input class="form-control" type="text" placeholder="请输入本次采购的物料名称" id="material"
-                               name="">
-                    </div>
-                    <div class="form-group">
-                        <label>请输入本次采购的物料数量：</label>
-                        <input class="form-control" type="text" placeholder="请输入本次采购的物料数量" id="amount" name=""
-                               onkeypress="if((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46 || /\.\d\d{2}$/.test(value))event.returnValue=false">
-                    </div>
-                    <div class="form-group">
-                        <label>请输入物料种类：</label>
-                        <input class="form-control" type="text" placeholder="请输入物料种类" id="type" name="" ">
-                    </div>
-                    <div class="form-group">
-                        <label>请输入本次采购的物料的单价：</label>
-                        <input class="form-control" type="text" placeholder="请输入本次采购的物料的单价" id="price" name=""
-                               onkeypress="if((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46 || /\.\d\d{2}$/.test(value))event.returnValue=false">
-                    </div>
-                    <div class="form-group">
-                        <label>请选择本次采购料接收部门：</label>
-                        <select class="form-control" id="receptionDepartment" name="">
-                            <option value="">请选择本次采购料接收部门</option>
-                            <option value="产品部">产品部</option>
-                            <option value="综合部">综合部</option>
-                            <option value="装配部">装配部</option>
-                            <option value="机械部">机械部</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>请输入物料接收人员：</label>
-                        <input class="form-control" type="text" placeholder="请输入物料接收人员" id="receptionName"
-                               name="">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="addPurchase">提交</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <%--1 (1).	采购任务建立--%>
     <div id="taskCreation" class="item " div_data="1">一、采购任务建立</div>
     <%--2 (2).	采购任务审核--%>
@@ -215,7 +143,6 @@
     <div id="paymentRequisitionGenerated" class="item" style="margin-left:50px;" div_data="8">八、付款申请单生成</div>
     <%--7S(7).	签订并上传合同--%>
     <div id="signUploadContract" class="item" style="margin-left:50px; " div_data="7">七、签订并上传合同</div>
-
     <div style="clear:both"></div>
     <%--(13).	到货单生成；--%>
     <div id="InvoiceGeneration" class="item" style="margin-left:50px;" div_data="13">十三、到货单生成</div>
@@ -232,7 +159,6 @@
     <div id="printOrganizeRelatedForms" class="item" style="margin-left:50px; " div_data="18">
         十八、采购员打印整理相关表格、文档和票据，提交资料给会计
     </div>
-
     <div style="clear:both"></div>
     <div class="item" style="margin-left:50px;visibility: hidden "></div>
     <div class="item" style="margin-left:50px;visibility: hidden "></div>
@@ -248,10 +174,13 @@
     <div id="accountingAuditBill" class="item" style="margin-left:50px;" div_data="19">十九、会计审核票据</div>
     <%--连接线 的样式 --%>
 
+    <%--这个div是弹出提示框的样式--%>
     <div id="tipDiv" style="display: none">
+        <span style="float: right"  class=" fa fa-close" id="tipDivClose"></span>
+        <div style="text-align: center;margin-top: 10px">
         <button class="btn btn-default sm" style="margin-bottom: 10px" id="operation">操作</button>
         <button class="btn btn-default sm">修改、补充信息</button>
-        <span class=" fa fa-close" id="tipDivClose"></span>
+        </div>
     </div>
     <%--调试，连接线的功能--%>
 
@@ -289,29 +218,93 @@
         $("#tipDivClose").click(function () {
             $("#tipDiv").hide()
         })
-
         $("#operation").click(function () {
             alert("进入这个方法")
             alert(em)
             switch (em) {
                 case "1":
-                    alert("进入这个方法")
-                    $("#addPurchaseModal").modal("show");
-
+                 one()
                     break;
                 case 2:
 
                     break;
-                default:
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+
+                    break;
+                case 6:
+
+                    break;
+                case 7:
+
+                    break;
+                case 8:
+
+                    break;
+                case 9:
+
+                    break;
+                case 10:
+                    break;
+                case 11:
+
+                    break;
+                case 12:
+
+                    break;
+                case 13:
+
+                    break;
+                case 14:
+
+                    break;
+
+                case 15:
+
+                    break;
+
+                case 16:
+
+                    break;
+
+                case 17:
+
+                    break;
+
+                case 18:
+
+                    break;
+
+                case 19:
+
+                    break;
+
+                case 20:
+
+                    break;
+
+                case 21:
+
+                    break;
+
+                case 22:
+
+                    break;
 
             }
 
         })
-
-
     </script>
 
 
+
+
+    <%@ include file="task-details/detail-js1.jsp"%>
 </div>
 </body>
 </html>
