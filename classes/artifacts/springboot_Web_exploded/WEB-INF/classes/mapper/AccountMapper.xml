@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beaver.mapper.AccountMapper">
+    <!--新增一个账号-->
+    <insert id="addOneAccount" parameterType="com.beaver.bean.Account">
+        insert into bv_account values(null,#{bvName},#{bvDepartment}, #{bvPassword},#{bvQuanxian},0,#{mail} )
+    </insert>
+
+    <!--用户登录返回一个账号对象-->
+    <select id="userLonin" resultType="com.beaver.bean.Account">
+        select * from bv_account where bv_name= #{bvName} and bv_password = #{bvPassword} and  usable =1
+    </select>
+    <!--修改密码信息-->
+    <update id="updateAccountPassword">
+        update bv_account set bv_password=#{bvPassword} where id=#{id}
+    </update>
+    <!--删除信息-->
+    <delete id="deleteAccount">
+        delete from bv_account where id = #{id}
+    </delete>
+
+    <select id="getAllStaff" resultType="com.beaver.bean.Account">
+        select * from bv_account
+    </select>
+
+
+    <select id="findUserById" resultType="com.beaver.bean.Account">
+        select * from bv_account where id = #{id}
+    </select>
+
+
+</mapper>

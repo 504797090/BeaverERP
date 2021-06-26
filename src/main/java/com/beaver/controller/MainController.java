@@ -13,9 +13,9 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/login")
+    @RequestMapping("/cc")
     public String newPage() {
-        return "index";
+        return "index_admin";
     }
 
 }

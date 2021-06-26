@@ -6,9 +6,9 @@ spring:
 #    # Jasypt加密 可到common-utils中找到JasyptUtil加解密工具类生成加密结果 格式为ENC(加密结果) 以下解密结果为root
 #    password: dmag
     url: jdbc:mysql://localhost:3306/beaver?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true&useAffectedRows=true
-    username: root
+    username: lufeng
     # Jasypt加密 可到common-utils中找到JasyptUtil加解密工具类生成加密结果 格式为ENC(加密结果) 以下解密结果为root
-    password: root
+    password: lufeng
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       pool-name: Sqlparser_HikariCP
@@ -23,12 +23,12 @@ spring:
     view:
       prefix : /WEB-INF/
       suffix : .jsp
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: admin
-    password: admin
-    virtual-host: /
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: admin
+#    password: admin
+#    virtual-host: /
   mail:
     host: smtp.126.com
     username: beaver_lufeng@126.com

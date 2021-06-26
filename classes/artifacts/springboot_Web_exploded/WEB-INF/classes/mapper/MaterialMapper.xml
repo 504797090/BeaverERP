@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beaver.mapper.MaterialMapper">
+
+
+    <insert id="addOneMaterial" parameterType="com.beaver.bean.Material" keyProperty="id" useGeneratedKeys="true"
+            keyColumn="id">
+        insert into bv_material values(null,#{material},#{type}, #{price},#{sId} ,null , #{amount})
+    </insert>
+
+
+    <select id="findMaxId" resultType="java.lang.Integer">
+        SELECT MAX(m_id)
+        AS id
+        FROM bv_material;
+    </select>
+
+</mapper>

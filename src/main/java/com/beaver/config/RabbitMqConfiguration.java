@@ -5,7 +5,7 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class RabbitMqConfiguration {
     //1.声明fanout模式的交换机
 

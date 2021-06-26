@@ -17,7 +17,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @MapperScan("com.beaver.mapper.**")
 @SpringBootApplication(exclude = MongoAutoConfiguration.class)
 public class SpringbootApplication {
+
     public static void main(String[] args) {
         SpringApplication.run(SpringbootApplication.class, args);
     }
+
 }

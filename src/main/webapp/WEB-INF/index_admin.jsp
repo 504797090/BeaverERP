@@ -1,16 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path;
 %>
-<%
-    if( session.getAttribute("bv_name")==null  || session.getAttribute("bv_name")=="" ) {
-        response.sendRedirect(basePath+"/beaver/login");
-    }
-%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<%--<%--%>
+    <%--if( session.getAttribute("bv_name")==null  || session.getAttribute("bv_name")=="" ) {--%>
+        <%--response.sendRedirect(basePath+"/beaver/login");--%>
+    <%--}--%>
+<%--%>--%>
+<%--<c:set var="ctx" value="${pageContext.request.contextPath}"/>--%>
 
 <html xmlns:th="http://www.w3.org/2005/Atom">
 <head>
@@ -186,7 +186,7 @@
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#" onclick="toRealPage('/personnel/simple-check')">简单的功能先做一下，为了采购模块的功能</a></li>
+                        <li><a href="#" onclick="toRealPage('${pageContext.request.contextPath}/personnel/simple-check')">简单的功能先做一下，为了采购模块的功能</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -238,7 +238,7 @@
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#" onclick="toRealPage('/purchase/project-purchasing')">项目采购</a></li>
+                        <li><a href="#" onclick="toRealPage('${pageContext.request.contextPath}/purchase/project-purchasing')">项目采购</a></li>
                         <li><a href="#" onclick="toRealPage('/')">备库采购</a></li>
                         <li><a href="#" onclick="toRealPage('/')">研发采购</a></li>
                         <li><a href="#" onclick="toRealPage('/')">日常采购</a></li>
