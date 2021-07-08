@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beaver.mapper.customer.TradeMapper">
+    <resultMap id="allFirstIdTrade" type="java.util.HashMap">
+        <result property="key" column="t_id" javaType="java.lang.Integer"/>
+        <result property="value" column="trade_name" javaType="java.lang.String"/>
+    </resultMap>
+
+    <resultMap id="allSecondIdTrade" type="java.util.HashMap">
+        <result property="key" column="t_id" javaType="java.lang.Integer"/>
+        <result property="value" column="trade_name" javaType="java.lang.String"/>
+    </resultMap>
+
+    <insert id="addFirstTrade">
+        insert  into  trade (trade_name, trade_level ) values(#{tradeName} ,1);
+    </insert>
+
+    <select id="getAllFirstIdTrade" resultMap="allFirstIdTrade">
+        SELECT t_id,trade_name FROM trade where  trade_level =1
+    </select>
+
+    <insert id="addSecondTrade">
+        insert into trade (trade_name, trade_level ,belong_name,belong_id) values(#{tradeName} ,2 ,#{belongName} ,#{belongId}  );
+    </insert>
+
+    <delete id="deleteTrade">
+      DELETE FROM  trade WHERE t_id = #{tId}
+    </delete>
+
+    <update id="updateTrade">
+        update  trade set  trade_name = #{tradeName} where  t_id =#{tId}
+    </update>
+
+    <select id="findAllTrade" resultType="com.beaver.bean.customer.Trade">
+        select *  from trade where  trade_level =2
+    </select>
+
+    <select id="verifyRepeat" resultType="java.lang.Integer">
+        select count(*) from  trade where  trade_name =#{tradeName}
+    </select>
+
+
+    <!--加载所有的二级  为了之后的显示-->
+    <select id="getAllSecondIdTrade" resultMap="allSecondIdTrade">
+        SELECT t_id,trade_name FROM trade where  trade_level =2
+    </select>
+
+
+
+</mapper>

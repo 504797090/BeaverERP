@@ -1,0 +1,179 @@
+
+    <!--树-->
+    <div id="Tree">
+
+    </div>
+
+    <!--功能按钮-->
+    <span class="BtnNew btn btn-default">新增</span>
+    <span class="BtnRemove btn btn-danger">删除</span>
+    <span class="BtnModification btn btn-primary" >修改</span>
+    <!--新增-->
+    <div class="modal fade" id="myNew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">新增</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <span class="col-lg-2 text-right" style="margin-top: 5px;">名称</span>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control TextInput" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary NewDetermine">确定</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+    </div>
+    <!--编辑-->
+    <div class="modal fade" id="myModification" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">新增</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <span class="col-lg-2 text-right" style="margin-top: 5px;">名称</span>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control ModificationInput" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary ModificationDetermine">确定</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+    </div>
+    <script>
+
+        var loopLevel = 0;
+        $.ajax({
+            type:"get",
+            url:"${pageContext.request.contextPath}/customer/returnTreeFramework",
+            success:function(requert){
+                var columnStructure = [{text: "Review", nodes: "nodes"},
+                    {text: "Review", nodes: "nodes"},{text: "Review", nodes: "nodes"}];
+                //外来数据转化为treeView数据的转化结构
+
+
+                // ----------
+                //
+                //
+                // **这里需要注意的是columnStructure 里面的text值，是树结构要显示的文字名称,例如：我的树结构名字为 “ Review ” 那么我columnStructure中text对应的值就是 “ Review ”;**
+                // ------------------------------------------------------------------------
+
+
+                    obj2treeview(requert,columnStructure);//将外来数据转化为treeview数据
+                function obj2treeview(resp,structure){
+                    var nodeArray = new Array();
+                    var i = 0;
+                    for(i= 0;i<resp.length;i++){
+                        var treeViewNodeObj;
+                        var textStr = structure[loopLevel].text;
+                        var nodeStr = structure[loopLevel].nodes;
+
+                        var subNode;
+                        if(resp[i][nodeStr] != undefined){
+                            loopLevel++;
+                            subNode = obj2treeview(resp[i][nodeStr],structure);
+                            loopLevel--;
+                        }
+
+                        if(subNode != undefined){
+                            treeViewNodeObj = {
+                                text: resp[i][textStr],
+                                nodes: subNode
+                            };
+                        }else{
+                            treeViewNodeObj = {
+                                text: resp[i][textStr]
+                            };
+                        }
+                        nodeArray.push(treeViewNodeObj);
+
+                    }
+                    init(nodeArray)
+                    return nodeArray
+                }
+            }
+        });
+
+        function init(data){
+            $('#Tree').treeview({
+                data: data,
+                levels:1 , //默认显示子级的数量
+                collapseIcon:" glyphicon glyphicon-folder-open",  //收缩节点的图标
+                expandIcon:"glyphicon glyphicon-folder-close",    //展开节点的图标
+                showIcon: false,//是否显示图标
+                showCheckbox:true//是否显示多选框
+            });
+        }
+
+    </script>
+    <script>
+        //新增 事件
+        //事件注册
+        function BindEvent() {
+            //保存-新增
+            $(".NewDetermine").click(function () {
+                $('#myNew').modal('hide')//关闭新增输入窗口
+                //静态添加节点
+                var parentNode = $('#Tree').treeview('getSelected');//选中的行
+                var node = {
+                    text: $('.TextInput').val()//获取新增内容；
+                };
+                $('#Tree').treeview('addNode', [node, parentNode]);//添加新增内容
+            });
+        }
+
+
+        //显示-新增
+        $(".BtnNew").click(function(){
+            var node = $('#Tree').treeview('getSelected');//选中的行
+            if (node.length == 0) { //当没有选中时的操作
+                alert("请选择节点")
+            }else{
+                $('#TextInput').val('');//让input清空
+                $('#myNew').modal('show');//显示新增输入窗口
+            }
+        });
+        //删除
+        $(".BtnRemove").click(function(){
+            var node = $('#Tree').treeview('getSelected');//选中的当前行
+            if(node == 0){
+                alert("请选择节点")
+            }else{
+                $('#Tree').treeview('removeNode', [ node, { silent: true } ]);//删除当前选中的节点
+            }
+
+        })
+
+
+    </script>
+

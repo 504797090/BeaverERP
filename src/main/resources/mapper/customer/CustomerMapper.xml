@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beaver.mapper.customer.CustomerMapper">
+
+    <insert id="addOneCustomer">
+        insert  into  customer
+        values  ( null , #{tradeId} ,
+        #{companyName} ,#{companyAttributes} ,#{companyAddress}
+        ,#{companyResponsible} ,#{responsiblePhone} ,
+        #{responsibleWechat} ,#{responsibleMail}
+          ,#{linkmanName}     ,#{linkmanPhone}
+           ,#{linkmanWechat}   ,#{linkmanMail}
+            ,#{operatorName} ,#{operatorPhone}
+             ,#{operatorWechat} ,#{operatorMail}      )
+
+    </insert>
+
+    <select id="findAllCustomer" resultType="com.beaver.bean.customer.Customer">
+    SELECT * FROM  customer
+LEFT JOIN trade  ON     customer.`trade_id` =  trade.`t_id`
+    ORDER BY  c_id DESC
+
+    </select>
+
+
+<!--id,name,description,parent_id -->
+<select id="getAllNode" resultType="com.beaver.bean.customer.jsonTree.ChildNode">
+
+    select *  from  child_node
+
+</select>
+
+    <insert id="addOneNode">
+        insert into  child_node values(
+        null,#{id} ,#{name} ,#{description} ,#{parentId}
+        )
+    </insert>
+
+
+    <select id="findNodeMax" resultType="java.lang.Integer">
+SELECT (
+SELECT  IF(ISNULL(MAX(id)),0,MAX(id)) id   FROM child_node) +1  id
+    </select>
+
+
+<delete id="deleteNode">
+    delete from  child_node where  id =#{id} or  parent_id =#{id}
+</delete>
+
+    <select id="getBrotherId" resultType="java.lang.Integer">
+        SELECT   IFNULL(MAX(id ),0)   from child_node where  parent_id =#{id} limit 1
+    </select>
+
+
+    <select id="getAllIdCustomer" resultMap="allIdCustomer">
+        select  c_id, company_name from  customer order  by  c_id desc
+    </select>
+
+    <resultMap id="allIdCustomer" type="java.util.HashMap">
+        <result property="key" column="c_id"  javaType="java.lang.Integer"></result>
+        <result property="value" column="company_name"  javaType="java.lang.String"></result>
+    </resultMap>
+
+</mapper>

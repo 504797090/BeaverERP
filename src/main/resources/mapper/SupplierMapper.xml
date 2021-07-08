@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.beaver.mapper.SupplierMapper">
-    <resultMap id="allSupplierIdName" type="java.util.HashMap">
-        <result property="key" column="s_id" javaType="java.lang.Integer"/>
-        <result property="value" column="company_name" javaType="java.lang.String"/>
+    <resultMap id="allFirstIdTrade" type="java.util.HashMap">
+        <result property="key" column="t_id" javaType="java.lang.Integer"/>
+        <result property="value" column="trade_name" javaType="java.lang.String"/>
     </resultMap>
 
     <select id="getAllSupplier" resultType="com.beaver.bean.Supplier">
@@ -20,9 +20,8 @@
         delete from bv_supplier where s_id = #{sId}
     </delete>
 
-
-    <select id="getAllSupplierIdName" resultMap="allSupplierIdName">
-        SELECT s_id,company_name FROM bv_supplier
+    <select id="getAllFirstIdTrade" resultMap="allFirstIdTrade">
+        SELECT t_id,trade_name FROM trade where  trade_level =1
     </select>
 
 

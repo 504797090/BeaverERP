@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beaver.mapper.product.ProductMapper">
+
+
+    <insert id="addOneProduct" parameterType="com.beaver.bean.product.Product">
+       insert into   product values
+       (null , #{cId} , #{countryCode} , #{postalCode} ,  UNIX_TIMESTAMP(NOW()) , #{productSerialNumber} , #{state} , #{productType})
+    </insert>
+
+
+<select id="getAllProductList" resultType="com.beaver.bean.vo.ProductChildNodeCustomer">
+SELECT * FROM `product` LEFT JOIN  `child_node`
+ ON product.product_type =  child_node.`number`
+ LEFT JOIN customer ON customer.`c_id` = product.c_id ORDER BY  product.`p_id`
+</select>
+
+
+
+</mapper>

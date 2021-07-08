@@ -23,8 +23,7 @@
     <!--[if lt IE 9]>
     <![endif]-->
     <!-- Google Font -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <!--所有的css资源-->
     <!--时间选择-->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.css">

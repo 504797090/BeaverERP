@@ -5,10 +5,10 @@ spring:
 #    username: dmag
 #    # Jasypt加密 可到common-utils中找到JasyptUtil加解密工具类生成加密结果 格式为ENC(加密结果) 以下解密结果为root
 #    password: dmag
-    url: jdbc:mysql://localhost:3306/beaver?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true&useAffectedRows=true
-    username: lufeng
+    url: jdbc:mysql://36.26.54.86:3306/beaver?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true&useAffectedRows=true
+    username: root
     # Jasypt加密 可到common-utils中找到JasyptUtil加解密工具类生成加密结果 格式为ENC(加密结果) 以下解密结果为root
-    password: lufeng
+    password: 123456
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       pool-name: Sqlparser_HikariCP
@@ -24,8 +24,8 @@ spring:
       prefix : /WEB-INF/
       suffix : .jsp
 #  rabbitmq:
-#    host: localhost
-#    port: 5672
+#    host: 36.26.54.86
+#    port: 6379
 #    username: admin
 #    password: admin
 #    virtual-host: /
@@ -36,6 +36,11 @@ spring:
     protocol: smtp
     default-encoding: UTF-8
     port: 25
+
+
+  redis:
+    host: 36.26.54.86
+    port: 6379
 #    properties:
 #        mail:
 #          smtp:
@@ -43,9 +48,9 @@ spring:
 #            #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
 #          debug: true
 server:
-  port: 8080
+  port: 8888
 mybatis:
-  mapper-locations: classpath:mapper/*.xml
+  mapper-locations: classpath:mapper/**/*.xml
   configuration:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -6,9 +6,9 @@
             + path;
 %>
 <%--<%--%>
-    <%--if( session.getAttribute("bv_name")==null  || session.getAttribute("bv_name")=="" ) {--%>
-        <%--response.sendRedirect(basePath+"/beaver/login");--%>
-    <%--}--%>
+<%--if( session.getAttribute("bv_name")==null  || session.getAttribute("bv_name")=="" ) {--%>
+<%--response.sendRedirect(basePath+"/beaver/login");--%>
+<%--}--%>
 <%--%>--%>
 <%--<c:set var="ctx" value="${pageContext.request.contextPath}"/>--%>
 
@@ -64,6 +64,11 @@
           href="${pageContext.request.contextPath}/static/x-editable-develop/dist/bootstrap3-editable/css/bootstrap-editable.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/multiselect-master/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/select2-develop/dist/css/select2.min.css">
+
+
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/static/css/bootstrap-treeview.css">
+
     <script type="application/javascript"
             src="${pageContext.request.contextPath}/static/js/jquery-3.3.1.min.js"></script>
     <!--所有的js资源-->
@@ -89,16 +94,18 @@
     <script src="${pageContext.request.contextPath}/static/bootstrap-datepicker-master/dist/locales/bootstrap-datepicker.zh-CN.min.js"></script>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jQuery.Form.js"></script>
     <script src="${pageContext.request.contextPath}/static/multiselect-master/dist/js/multiselect.js"></script>
     <script type="text/javascript"
             src="${pageContext.request.contextPath}/select2-develop/dist/js/select2.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.13.4/dist/extensions/select2-filter/bootstrap-table-select2-filter.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/songyz-xlsx-master/xlsx.js"></script>
 
-
     <%--曲线--%>
     <script src="https://cdn.jsdelivr.net/npm/jsplumb@2.8.0/dist/js/jsplumb.min.js"></script>
+    <script type="text/javascript"
+            src="${pageContext.request.contextPath}/static/js/bootstraptable-treeview.js"></script>
+
+
     <style>
         .importFrame {
             border-top-right-radius: 5px;
@@ -186,7 +193,9 @@
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#" onclick="toRealPage('${pageContext.request.contextPath}/personnel/simple-check')">简单的功能先做一下，为了采购模块的功能</a></li>
+                        <li><a href="#"
+                               onclick="toRealPage('${pageContext.request.contextPath}/personnel/simple-check')">简单的功能先做一下，为了采购模块的功能</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -238,11 +247,18 @@
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#" onclick="toRealPage('${pageContext.request.contextPath}/purchase/project-purchasing')">项目采购</a></li>
+                        <li><a href="#"
+                               onclick="toRealPage('${pageContext.request.contextPath}/purchase/project-purchasing')">项目采购</a>
+                        </li>
                         <li><a href="#" onclick="toRealPage('/')">备库采购</a></li>
                         <li><a href="#" onclick="toRealPage('/')">研发采购</a></li>
                         <li><a href="#" onclick="toRealPage('/')">日常采购</a></li>
                         <li><a href="#" onclick="toRealPage('/')">资产采购</a></li>
+                        <%--物料编码管理--%>
+
+                        <li><a href="#"
+                               onclick="toRealPage('${pageContext.request.contextPath}/purchase/material-code')">物料编码管理</a>
+                        </li>
                     </ul>
                 </li>
                 <%--外协--%>
@@ -266,16 +282,7 @@
                         <li><a href="#" onclick="toRealPage('')">在建中</a></li>
                     </ul>
                 </li>
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-link"></i> <span>仓库</span>
-                        <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#" onclick="toRealPage('')">在建中</a></li>
-                    </ul>
-                </li>
+
                 <li class="treeview">
                     <a href="#"><i class="fa fa-link"></i> <span>生产</span>
                         <span class="pull-right-container">
@@ -316,6 +323,62 @@
                         <li><a href="#" onclick="toRealPage('')">在建中</a></li>
                     </ul>
                 </li>
+                <%--客户--%>
+                <li class="treeview">
+                    <a href="#"
+                       onclick="toRealPage('${pageContext.request.contextPath}/customer/customer-index')"><i class="fa fa-link"></i> <span>客户</span>
+                        <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"
+                               onclick="toRealPage('${pageContext.request.contextPath}/customer/new-customer')">新建客户</a>
+                        </li>
+                        <li><a href="#"
+                               onclick="toRealPage('${pageContext.request.contextPath}/customer/edit-customer')">编辑</a>
+                        </li>
+                        <li><a href="#"
+                               onclick="toRealPage('${pageContext.request.contextPath}/customer/query-customer')">查询</a>
+                        </li>
+                    </ul>
+                </li>
+                <%--产品--%>
+                <li class="treeview">
+                    <a href="#"
+                       onclick="toRealPage('${pageContext.request.contextPath}/product/intoProductIndex')"
+                    ><i class="fa fa-link"></i> <span>产品</span>
+                        <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#" onclick="toRealPage('${pageContext.request.contextPath}/product/new-product')">新建产品</a>
+                        </li>
+                        <li><a href="#"
+                               onclick="toRealPage('${pageContext.request.contextPath}/product/modify-product')">修改</a>
+                        </li>
+                        <li><a href="#"
+                               onclick="toRealPage('${pageContext.request.contextPath}/product/query-product')">查询</a>
+                        </li>
+                    </ul>
+                </li>
+                <%--仓库--%>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-link"></i> <span>仓库</span>
+                        <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"
+                               onclick="toRealPage('${pageContext.request.contextPath}/ware/complete-warehouse')">齐套入库</a>
+                        </li>
+                        <li><a href="#"
+                               onclick="toRealPage('${pageContext.request.contextPath}/ware/warehourse-manage')">库位管理</a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-link"></i> <span>日志</span>
                         <span class="pull-right-container">
@@ -336,22 +399,22 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header" id="content-header">
-            <h1 class="primaryTitle">
-                ###
-                <small class="secondaryTitle">###</small>
-            </h1>
+            <%--<h1 class="primaryTitle">--%>
+            <%--###--%>
+            <%--&lt;%&ndash;<small class="secondaryTitle"></small>&ndash;%&gt;--%>
+            <%--<h3  class="secondaryTitle"></h3>--%>
+            <%--</h1>--%>
+
+            <h2 style=" display:inline;" class="primaryTitle"></h2>
+            <h3 style=" display:inline;" class="secondaryTitle"></h3>
+
+
             <!--<ol class="breadcrumb">-->
             <!--<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>-->
             <!--<li class="active">Here</li>-->
             <!--</ol>-->
         </section>
-
-        <!-- 自由发挥 -->
-        <section class="content container-fluid" id="ourPage">
-            <!--------------------------
-              | 填充!!!!!!!!!!!!!!!!!!! |
-              -------------------------->
-        </section>
+        <section class="content container-fluid" id="ourPage"></section>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->

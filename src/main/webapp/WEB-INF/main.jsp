@@ -454,6 +454,7 @@
                 });
             });
 
+
             $("#addPurchase").click(function () {
                 console.log($("#material").val() + $("#amount").val() + $("#type").val())
                 if ($("#material").val() == "" || $("#amount").val() == "" || $("#type").val() == "" || $("#supplierSelect").val() == "" || $("#price").val() == "") {
